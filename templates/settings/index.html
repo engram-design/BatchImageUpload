@@ -1,0 +1,20 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textField({
+    label: 'Image Feed' | t,
+    instructions: 'The url to your list of images to upload.' | t,
+    id: 'imageFeed',
+    name: 'imageFeed',
+    value: settings.imageFeed,
+    first: true,
+    autofocus: true,
+}) }}
+
+<hr>
+
+{% set directUrl = actionUrl('/batchImageUpload/batchUpload') | replace(craft.config.cpTrigger ~ '/', '') %}
+
+<a href="{{ directUrl }}">Controller Trigger</a>
+
+<hr>
+
